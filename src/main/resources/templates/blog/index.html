@@ -1,1 +1,5 @@
 blog/index
+
+<div th:each="post : ${posts}">
+    <div th:text="${post.title}"> aa </div>
+</div>
