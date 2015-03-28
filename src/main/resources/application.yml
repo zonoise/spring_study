@@ -1,0 +1,23 @@
+spring:
+  profle:
+    active: dev
+---
+spring:
+    profiles: dev
+
+---
+spring:
+    profiles: heroku
+    datasource:
+      driverClassName: org.postgresql.Driver
+    jpa:
+      database: POSTGRESQL
+      hibernate:
+        ddl-auto: update
+      properties:
+          hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            hbm2ddl:
+                auto: update
+            temp:
+                use_jdbc_metadata_defaults: false
