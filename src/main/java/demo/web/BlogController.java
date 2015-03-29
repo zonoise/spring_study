@@ -2,6 +2,8 @@ package demo.web;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/blog")
 public class BlogController {
+	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
 	
 	@Autowired
 	PostRepository postRepository;
@@ -33,6 +36,11 @@ public class BlogController {
 	@RequestMapping("create")
 	public String create(Model m,Post b){
 		Post post = postRepository.save(b);
+		
+		Post p2 = new Post();
+		p2.setTitle("aaaa");
+		postRepository.save(p2);
+		logger.debug("aaaaa");
 		m.addAttribute("blog",post);
 		return "blog/create";
 	}

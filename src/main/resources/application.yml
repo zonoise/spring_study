@@ -4,7 +4,28 @@ spring:
 ---
 spring:
     profiles: dev
-
+    datasource:
+      url: jdbc:mysql://localhost:8889/spring
+      driverClassName: com.mysql.jdbc.Driver 
+      username: root
+      password: root
+    jpa:
+      database: MYSQL
+      database-platform: org.hibernate.dialect.MySQLDialect
+      show-sql: true 
+      hibernate:
+        ddl-auto: update
+    logging:
+      file: logs/myapp.log
+      level:
+        org.springframework.web: INFO
+      properties:
+          hibernate:
+            dialect: org.hibernate.dialect.MySQLDialect
+            hbm2ddl:
+                auto: update
+            temp:
+                use_jdbc_metadata_defaults: false
 ---
 spring:
     profiles: heroku
