@@ -42,7 +42,7 @@ public class BlogController {
 		postRepository.save(p2);
 		logger.debug("aaaaa");
 		m.addAttribute("blog",post);
-		return "blog/create";
+        return "redirect:/blog/index";
 	}
 	
 }
