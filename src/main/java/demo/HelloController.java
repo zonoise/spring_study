@@ -10,10 +10,9 @@ public class HelloController {
 
 	@RequestMapping(value = "/" , method=RequestMethod.GET)
 	public String index(Model model){
-		model.addAttribute("name","aadddaa");
-		return "index";
+		return "redirect:/blog/index";
 	}
-	
+
 	@RequestMapping(value = "/error" , method=RequestMethod.GET)
 	public String error(Model m){
 		return "error";

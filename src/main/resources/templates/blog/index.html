@@ -1,5 +1,11 @@
 blog/index
 
+<a href="form.html">form</a>
+<h2>Posts</h2>
 <div th:each="post : ${posts}">
-    <div th:text="${post.title}"> aa </div>
+    <!-- <span th:text="${post.id}"> aa </span><br/>-->
+    <span th:text="${post.title}"> title </span>
+    <a href="hoge.html" th:href='${"/blog/detail?id="} + ${post.id}'>detail</a>
 </div>
+
+<a href="/blog/hoge.html">static html </a>

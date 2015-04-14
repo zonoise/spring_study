@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<a href="index.html">index</a>
+<h2>Post Detail</h2>
+<h3>Title</h3>
+<div th:text="${post.title} + ${' : '}+ ${post.id}"> title </div>
+
+<div th:text="${post.text}"> title </div>
+
+<h2>Comments</h2>
+<div th:each="comment : ${post.comments}">
+    <div th:text="${comment.title}">aa</div>
+</div>
+
+<h2>Add Comment</h2>
+<form action="#" th:action="@{/blog/comment/create}" th:object="${comment}" method="post">
+    <input type="text" th:field="*{title}" />
+    <input type="hidden" name="postId" th:value="${post.id}"/>
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
+</form>
+</body>
+</html>
